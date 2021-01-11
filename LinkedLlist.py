@@ -14,6 +14,15 @@ class LinkedList:
         #Function for inserting at the starting 
         new_node = Node(data,self.head) #creating a new node 
         self.head = new_node #now head will point to newly created node
+    def insert_at_end(self,data):
+        if self.head is None: #which means there is nothing in the Linked List
+            new_node = Node(data,self.head) #creating a new node 
+            self.head = new_node #now head will point to newly created node
+            return
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        temp.next = Node(data,None)
     def print(self): #funtion for prinitng the nodes and the datas
         element = ''
         if self.head is None:
@@ -30,6 +39,7 @@ if __name__ == '__main__':
     ll.insert_at_start(2)
     ll.insert_at_start(3)
     ll.insert_at_start(4)
-    ll.insert_at_start(5)
+    ll.insert_at_end(5)
+    ll.insert_at_end(9)
     ll.print()
 
